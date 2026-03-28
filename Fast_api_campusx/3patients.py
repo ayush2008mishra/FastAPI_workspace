@@ -63,7 +63,7 @@ def save_data(data): #argument as dict
 def hello():
     return {"message":"Patients Management System API"}
 
-@app.get("/About")
+@app.get("/About")            //path operation decorator
 def About():
     return {"meassge":"A fully functional api to manage your pateints records fuck you"}
 

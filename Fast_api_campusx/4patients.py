@@ -9,6 +9,9 @@ from fastapi import FastAPI, Path, HTTPException, Query   #importing FastAPI cla
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel,Field,computed_field
 import json
+from fastapi.middleware.cors import CORSMiddleware
+
+
 from typing import Annotated,Literal,Optional
 #annotated is used to add the description
 #for selcting option among given
@@ -16,7 +19,13 @@ from typing import Annotated,Literal,Optional
 #making object of class FastAPI
 app = FastAPI()
 
-
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 #making pydantic module
 class Patient(BaseModel):
